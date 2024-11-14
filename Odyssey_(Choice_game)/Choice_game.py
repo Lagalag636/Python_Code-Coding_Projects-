@@ -116,10 +116,65 @@ class NPC(pygame.sprite.Sprite):
 
     
 
-west_npc = NPC(WHITE, 10, 315, rect_length, rect_width, "I represent the West path!\nHead down this path to face\nchallenges and to test your\ntalents. You must choose a path.", x_offset=5, y_offset=-95, interaction_zone=(50, 300, 50, 50))
-east_npc = NPC(WHITE, 760, 265, rect_length, rect_width, "I represent the East path!\nHead this way to find your\nwild side and get dangerous.\nYou must choose a path.", x_offset=-145, y_offset=52, interaction_zone=(700, 250, 50, 50))
-north_npc = NPC(WHITE, 360, 15, rect_length, rect_width, "I represent the North path!\nChoose my path complete harrowing\nice puzzles for a reward.\nYou must choose a path.", x_offset=-241, y_offset=0, interaction_zone=(350, 50, 50, 50))
-south_npc = NPC(WHITE, 410, 565, rect_length, rect_width, "I represent the South path!\nFollow my path and find\nmirrors and mystery.\nYou must choose a path.", x_offset=55, y_offset=-45, interaction_zone=(400, 500, 50, 50))
+west_npc = NPC(
+    WHITE,
+    10,
+    315,
+    rect_length,
+    rect_width,
+    "I represent the West path!\n"
+    "Head down this path to face\n"
+    "challenges and to test your\n"
+    "talents. You must choose a path.",
+    x_offset=5,
+    y_offset=-95,
+    interaction_zone=(50, 300, 50, 50)
+)
+
+east_npc = NPC(
+    WHITE,
+    760,
+    265,
+    rect_length,
+    rect_width,
+    "I represent the East path!\n"
+    "Head this way to find your\n"
+    "wild side and get dangerous.\n"
+    "You must choose a path.",
+    x_offset=-145,
+    y_offset=52,
+    interaction_zone=(700, 250, 50, 50)
+)
+
+north_npc = NPC(
+    WHITE,
+    360,
+    15,
+    rect_length,
+    rect_width,
+    "I represent the North path!\n"
+    "Choose my path to complete harrowing\n"
+    "ice puzzles for a reward.\n"
+    "You must choose a path.",
+    x_offset=-241,
+    y_offset=0,
+    interaction_zone=(350, 50, 50, 50)
+)
+
+south_npc = NPC(
+    WHITE,
+    410,
+    565,
+    rect_length,
+    rect_width,
+    "I represent the South path!\n"
+    "Follow my path and find\n"
+    "mirrors and mystery.\n"
+    "You must choose a path.",
+    x_offset=55,
+    y_offset=-45,
+    interaction_zone=(400, 500, 50, 50)
+)
 npcs_group = pygame.sprite.Group()
 #npcs_group.add(NPC())
 
