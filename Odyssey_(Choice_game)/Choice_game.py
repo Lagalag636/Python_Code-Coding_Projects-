@@ -178,23 +178,31 @@ south_npc = NPC(
 npcs_group = pygame.sprite.Group()
 #npcs_group.add(NPC())
 
+# Main game loop
 while True:
     screen.fill((255, 255, 255))
 
+    # Draw the tiled background
     for row in range(rows):
         for col in range(cols):
             color = MID_GRAY if (row + col) % 2 == 0 else LIGHT_GRAY
             pygame.draw.rect(screen, color, (col * tile_size, row * tile_size, tile_size, tile_size))
 
-        # Track character movement by comparing positions
-    character = pygame.draw.rect(screen, RED, (rect_x, rect_y, rect_length, rect_width))
-    current_character_position = character.topleft
-    '''if current_character_position != character_position:
-        character_position = current_character_position'''
+    # Draw the main character
+    character = pygame.Rect(rect_x, rect_y, rect_length, rect_width)  # **Character is defined here**
+    pygame.draw.rect(screen, RED, character)
 
+    # Check for collisions with NPCs
     for npc in [north_npc, south_npc, east_npc, west_npc]:  # Iterate over each NPC instance
         npc.draw(screen)
-        npc.interact(character, screen, npc_font, character_position=current_character_position)  # Now calling interact on each NPC instance
+        npc.interact(character, screen, npc_font, character_position=character.topleft)
+
+        # **Collision detection logic added here**
+        if npc.rect.colliderect(character):
+            rect_x -= rect_speed if keys[pygame.K_RIGHT] else 0
+            rect_x += rect_speed if keys[pygame.K_LEFT] else 0
+            rect_y -= rect_speed if keys[pygame.K_DOWN] else 0
+            rect_y += rect_speed if keys[pygame.K_UP] else 0
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -215,16 +223,23 @@ while True:
                 print("Space key pressed")
             elif keys[pygame.K_DOWN]:
                 rect_y += rect_speed
+                if rect_y + rect_length > screen_height:
+                    rect_y -= rect_speed
             elif keys[pygame.K_UP]:
                 rect_y -= rect_speed
+                if rect_y < 0:
+                    rect_y += rect_speed
             elif keys[pygame.K_LEFT]:
                 rect_x -= rect_speed
+                if rect_x < 0:
+                    rect_x += rect_speed
             elif keys[pygame.K_RIGHT]:
                 rect_x += rect_speed
-     
+                if rect_x + rect_length > screen_width:
+                    rect_x -= rect_speed
+
+    # Display instructions
     text_surface = default_font.render('Press SPACE or click!', True, text_color)
     screen.blit(text_surface, (260, 280))
-    # Update previous position
-    previous_character_position = current_character_position
 
     pygame.display.flip()
