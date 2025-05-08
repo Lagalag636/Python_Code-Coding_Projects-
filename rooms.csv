@@ -1,4 +1,0 @@
-room_id,screen_width,screen_height,light_color,dark_color,character_x,character_y,npcs,text
-start_room,1200,800,"(211,211,211)","(169,169,169)",100,100,"North NPC|South NPC|East NPC|West NPC","Press SPACE or click!"
-west_1,1200,800,"(211,211,211)","(169,169,169)",200,300,"Guard NPC","You feel a chill in the air..."
-im stumpted
