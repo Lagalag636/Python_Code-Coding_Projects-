@@ -9,8 +9,8 @@ SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 
 # --- Card Properties ---
-RANKS = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
 SUITS = ['H', 'D', 'S', 'C']  # Hearts, Diamonds, Spades, Clubs
+RANKS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13']
 
 # --- Paths ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -27,7 +27,7 @@ def load_deck():
     deck = []
     for suit in SUITS:
         for rank in RANKS:
-            card_id = f"{rank}{suit}"
+            card_id = f"{suit}{rank}"
             file_path = os.path.join(CARD_FOLDER, f"{card_id}.png")
             try:
                 card_image = pygame.image.load(file_path).convert_alpha()
