@@ -91,7 +91,7 @@ class TableArrangement:
 
 
 if __name__ == "__main__":
-    groups = [5, 3, 8, 10, 6, 10, 12, 5, 7, 6, 9, 3, 4, 2]
+    groups = [5, 3, 8, 10, 6, 10, 12, 4, 7, 6, 9]
     arrangement = TableArrangement(groups, allow_extra_tables=False)
     tables, unseated, oversized = arrangement.arrange_tables()
     print("Table Arrangements:", tables)
