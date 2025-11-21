@@ -19,5 +19,5 @@ def measure_performance(n):
     print(f"Execution time: {execution_time:.6f} seconds.")
 
 if __name__ == "__main__":
-    n = random.randint(10000, 1000000)  # You can change the range for different performance tests
+    n = random.randint(100, 1000)  # You can change the range for different performance tests
     measure_performance(n)
